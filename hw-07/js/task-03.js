@@ -19,6 +19,8 @@ const images = [
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('gallery');
 
+const itemsArr = [];
+
 images.forEach(image => {
   const itemRef = document.createElement('li');
   const imageRef = document.createElement('img');
@@ -26,5 +28,7 @@ images.forEach(image => {
   itemRef.appendChild(imageRef);
   imageRef.src = image.url;
   imageRef.alt = image.alt;
-  galleryRef.appendChild(itemRef);
+  itemsArr.push(itemRef);
 });
+
+galleryRef.append(...itemsArr);
