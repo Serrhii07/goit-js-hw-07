@@ -19,16 +19,14 @@ const images = [
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('gallery');
 
-const itemsArr = [];
-
-images.forEach(image => {
+const itemsArr = images.map(image => {
   const itemRef = document.createElement('li');
   const imageRef = document.createElement('img');
-  imageRef.classList.add('gallery_img');
-  itemRef.appendChild(imageRef);
   imageRef.src = image.url;
   imageRef.alt = image.alt;
-  itemsArr.push(itemRef);
+  imageRef.classList.add('gallery_img');
+  itemRef.appendChild(imageRef);
+  return itemRef;
 });
 
 galleryRef.append(...itemsArr);
